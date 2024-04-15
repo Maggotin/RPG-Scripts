@@ -5,7 +5,7 @@ Hit Points:
 Stamina Points:
 Resolve Points:
 Initiative Bonus:
-EAC:
+EAC: 
 KAC:
 Damage Resistance (DR):
 Movement Speed:

@@ -1,7 +1,7 @@
 /input What is the item Name?|
 /setvar key=ItemFetcher_Name |
 
-/input What is the link?|
+/input What is the link?| 
 /setvar key=ItemFetcher_Link |
 
 /input What is the type (armor,weapon,etc)?|
