@@ -1,0 +1,71 @@
+/genraw | prompt=Generate an enemy character sheet based on the last message and chat history in the following format:
+
+Character Name:
+Hit Points:
+Stamina Points:
+Resolve Points:
+Initiative Bonus:
+EAC:
+KAC:
+Damage Resistance (DR):
+Movement Speed:
+Saving Throws:
+- Fortitude:
+- Reflex:
+- Will:
+Senses:
+Armor:
+Weapons:
+Feats:
+Class Features:
+Skills:
+Immunity:
+Ability Scores:
+| /setvar key=EnemyChar_Sheet |
+
+/setvars key=EnemyChar_Sheet |
+/getat var=EnemyChar_Sheet index="Character Name" | /setvar key=EnemyCharacterName |
+/getat var=EnemyChar_Sheet index="Hit Points" | /setvar key=EnemyHitPoints |
+/getat var=EnemyChar_Sheet index="Stamina Points" | /setvar key=EnemyStaminaPoints |  
+/getat var=EnemyChar_Sheet index="Resolve Points" | /setvar key=EnemyResolvePoints |
+/getat var=EnemyChar_Sheet index="Initiative Bonus" | /setvar key=EnemyInit |
+/getat var=EnemyChar_Sheet index=EAC | /setvar key=EnemyEAC |
+/getat var=EnemyChar_Sheet index=KAC | /setvar key=EnemyKAC |
+/getat var=EnemyChar_Sheet index=DR | /setvar key=EnemyDR |
+/getat var=EnemyChar_Sheet index=Speed | /setvar key=EnemySpeed |
+/getat var=EnemyChar_Sheet index=Senses | /setvar key=EnemySenses |
+/getat var=EnemyChar_Sheet index=Feats | /setvar key=EnemyFeats |
+/getat var=EnemyChar_Sheet index="Class Features" | /setvar key=EnemyClassFeatures |
+/getat var=EnemyChar_Sheet index=Immunity | /setvar key=EnemyImmunity |
+/getat var=EnemyChar_Sheet index=Skills | /setvar key=EnemySkills |
+/getat var=EnemyChar_Sheet index="Ability Scores" | /setvar key=EnemyAbilityScores |
+/getat var=EnemyChar_Sheet index="Saving Throws" | /setvar key=EnemySavingThrowsDict |
+/getat var=EnemySavingThrowsDict index=Fortitude | /setvar key=EnemyFortitude |
+/getat var=EnemySavingThrowsDict index=Reflex | /setvar key=EnemyReflex |
+/getat var=EnemySavingThrowsDict index=Will | /setvar key=EnemyWill |
+/getat var=EnemyChar_Sheet index=Equipment | /setvar key=EnemyEquipmentDict |
+/getat var=EnemyEquipmentDict index=Armor | /setvar key=EnemyArmor |
+/getat var=EnemyEquipmentDict index=Weapons | /setvar key=EnemyWeapons |
+
+/setvar key=EnemyBattle_Status
+**{{getvar::EnemyCharacterName}}**
+HP: {{getvar::EnemyHitPoints}}
+SP: {{getvar::EnemyStaminaPoints}}
+RP: {{getvar::EnemyResolvePoints}}
+EAC: {{getvar::EnemyEAC}}
+Initiative Bonus: {{getvar::EnemyInit}}
+KAC: {{getvar::EnemyKAC}}
+Damage Resistance (DR): {{getvar::EnemyDR}}
+Movement Speed: {{getvar::EnemySpeed}}
+Saving Throws:
+- Fortitude: {{getvar::EnemyFortitude}}
+- Reflex: {{getvar::EnemyReflex}}
+- Will: {{getvar::EnemyWill}}
+Senses: {{getvar::EnemySenses}}
+Armor: {{getvar::EnemyArmor}}
+Weapons: {{getvar::EnemyWeapons}}
+Feats: {{getvar::EnemyFeats}}
+Class Features: {{getvar::EnemyClassFeatures}}
+Skills: {{getvar::EnemySkills}}
+Immunity: {{getvar::EnemyImmunity}}
+Ability Scores: {{getvar::EnemyAbilityScores}} |

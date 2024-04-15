@@ -1,0 +1,35 @@
+/input What is the item Name?|
+/setvar key=ItemFetcher_Name |
+
+/input What is the link?|
+/setvar key=ItemFetcher_Link |
+
+/input What is the type (armor,weapon,etc)?|
+/setvar key=ItemFetcher_Type |
+
+//get Webpage |
+/fetch https://starfinder.dragonlash.com/equipment/armor/second-skin/ |
+/setvar key=ItemFetcher_Step1 |
+
+
+/$$ query=".block>p" take=textContent|
+/setvar key=ItemFetcher_Step2 |
+
+/map var=ItemFetcher_Step2 
+    /split find=":" {{item}}|
+
+/setvar key=ItemFetcher_Step3|
+
+/getat index=[10,0] var=ItemFetcher_Step3|
+/setat var=ItemFetcher_Step3 index=[10,1] {{pipe}} |
+/setat var=ItemFetcher_Step3 index=[10,0] Description |
+
+/dict|
+/setvar key={{getvar::ItemFetcher_Name}}|
+
+/flushvar ItemFetcher_Step1|
+/flushvar ItemFetcher_Step2|
+/flushvar ItemFetcher_Step3|
+/flushvar ItemFetcher_Name|
+/flushvar ItemFetcher_Link|
+/flushvar ItemFetcher_Type|
