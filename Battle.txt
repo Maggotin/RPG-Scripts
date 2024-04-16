@@ -1,5 +1,5 @@
-/getchatbook | /setvar key=chatLore Space_Pirates |
-/findentry file={{getVar::chatLore}} field=key "char_sheet_Yorrick" |
+/getchatbook | /setvar key=chatLore "Insert Lorebook" |
+/findentry file={{getVar::chatLore}} field=key "char_sheet_X" |
 /getentryfield file={{getVar::chatLore}} field=content | /setvar key=Char_Sheet |
 
 /getat var=Char_Sheet index="Character Name" | /setvar key=CharacterName |
